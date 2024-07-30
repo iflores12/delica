@@ -1,2 +1,0 @@
-# delica
-NGPVAN API Wrapper
