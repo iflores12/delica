@@ -27,3 +27,9 @@ ignore = ["D203"]
 
 [tool.black]
 line-length = 120
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov"
+testpaths = ["tests"]
+pythonpath = ['.']
+
