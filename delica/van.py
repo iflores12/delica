@@ -1,5 +1,7 @@
 from logging import getLogger
-from .exceptions import MissingRequiredException
+from .exceptions import MissingRequiredException, RequestException
+import requests
+from typing import Any
 
 logger = getLogger("delica")
 
@@ -39,3 +41,14 @@ class Van:
         self.application_name = application_name
         self.api_key = api_key
         self.version = version
+        self.van_url = "https://api.securevan.com/v4"
+        self._session = requests.Session()
+
+    def request(self, *args: Any, **kwargs: Any):
+        try:
+            return self._session.request(*args, **kwargs)
+        except Exception as e:  # noqa: BLE001
+            raise RequestException(e, args, kwargs) from None
+
+    def close_session(self):
+        self._session.close()
