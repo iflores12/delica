@@ -1,0 +1,16 @@
+API_URL = {
+    "people": "/people",
+    "find_people": "/people/find",
+    "find_people_by_phone": "/people/findByPhone",
+    "person": "/people/{vanId}",
+    "merge_people": "/people/{VanId}/mergeInto",
+    "canvass_response": "people/{vanId}/canvassResponses",
+    "person_activist_codes": "people/{vanId}/activistCodes",
+    "person_codes": "people/{vanId}/codes",
+    "person_relationships": "people/{vanId}/relationships",
+    "person_notes": "people/{vanId}/notes",
+    "person_membership": "people/{vanId}/membership",
+    "update_person_note": "people/{vanId}/notes/{noteId}",
+    "delete_person_codes": "people/{vanId}/codes/{codeId}",
+    "names": "people/{vanId}/names",
+}
