@@ -1,5 +1,7 @@
 from __future__ import annotations
-from .baseModel import DelicaBaseModel
+from delica.models.baseModel import DelicaBaseModel
+from delica.endpoints import API_URL
+from delica.exceptions import DelicaException
 
 
 class People(DelicaBaseModel):
@@ -11,4 +13,9 @@ class People(DelicaBaseModel):
         super().__init__(delica, _data=None)
 
     def find(self, person_id: int):
-        pass
+        if person_id:
+            route = API_URL["find_people"]
+        else:
+            raise DelicaException
+
+        return self._delica.get(route)

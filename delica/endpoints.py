@@ -13,4 +13,5 @@ API_URL = {
     "update_person_note": "people/{vanId}/notes/{noteId}",
     "delete_person_codes": "people/{vanId}/codes/{codeId}",
     "names": "people/{vanId}/names",
+    "echo": "echoes",
 }
