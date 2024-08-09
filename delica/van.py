@@ -1,9 +1,11 @@
 from logging import getLogger
-from .exceptions import MissingRequiredException, RequestException
-import requests
 from typing import Any
+
+import requests
+
 from . import models
 from .endpoints import API_URL
+from .exceptions import MissingRequiredException, RequestException
 
 logger = getLogger("delica")
 
