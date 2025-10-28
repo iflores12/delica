@@ -47,7 +47,7 @@ class Van:
         self.api_key = api_key
         self.version = version
         self.van_url = f"https://api.securevan.com/{self.version}"
-        self.credentials = f"{application_name}:{api_key}|{1}"
+        self.credentials = f"{application_name}:{api_key}|{0}"
         self._session = requests.Session()
         # update session to include auth and content type
         self._session.headers.update(
