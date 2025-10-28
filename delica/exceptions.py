@@ -4,6 +4,10 @@ from typing import Any
 class DelicaException(Exception):
     """Base Exception For API"""
 
+    def __init__(self, message: str, original_exception: Exception | None = None):
+        super().__init__(message)
+        self.original_exception = original_exception
+
 
 class MissingRequiredException(DelicaException):
     """Exception Raised When You're Missing Something That Is Required"""
