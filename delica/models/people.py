@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import date
 
 from delica.endpoints import API_URL
@@ -29,4 +30,4 @@ class People(DelicaBaseModel):
 
         data = {"vanId": person_id}
 
-        return self._delica.post(route, data=data)
+        return self._delica.post(route, json=data)
