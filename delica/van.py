@@ -1,4 +1,5 @@
 import base64
+import json
 from logging import getLogger
 from typing import Any
 
@@ -84,7 +85,7 @@ class Van:
             response = self._session.request(*args, **kwargs)
             response.raise_for_status()  # Raise an exception for HTTP errors
 
-            return response
+            return self._object_create(response)
         except requests.RequestException as e:
             logger.error(f"API Request failed: {e}")
             logger.error(f"Error Making Request to {full_url}")
@@ -128,6 +129,9 @@ class Van:
             params=params,
             path=path,
         )
+
+    def _object_create(self, response):
+        return json.loads(response.text)
 
     def get(self, path: str, *, params: str | None = None) -> Any:
         """Returns a request object from a GET request
